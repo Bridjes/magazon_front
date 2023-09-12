@@ -1,0 +1,48 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    height: 70px;
+    background: #35605A;
+    display: grid;
+    grid-template: 70px / 100px 1fr 100px;
+}
+nav .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav .logo .logo-link {
+    color: #F7F0F0;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: Arial;
+}
+nav .nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav .nav .nav-link {
+    margin-right: 20px;
+    color: #F7F0F0;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Arial;
+}
+nav .nav .nav-link:hover,
+nav .logo .logo-link:hover {
+    color: #18F2B2;
+    text-shadow: 0 0 10px #F7F0F0;
+}
+nav .auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    font-size: 25px;
+    color: #18F2B2;
+    text-shadow: 0 0 10px #18F2B2;
+}

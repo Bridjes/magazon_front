@@ -1,0 +1,13 @@
+.myButton {
+    border: none;
+    border-radius: 10px;
+    background: #35605A;
+    color: #F7F0F0;
+    font-size: 25px;
+    font-family: Arial;
+}
+.myButton:hover {
+    background: #18F2B2;
+    color: #00120B;
+    box-shadow: 0 0 15px #18F2B2;
+}
