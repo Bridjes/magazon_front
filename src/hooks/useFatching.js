@@ -3,10 +3,18 @@ export const useFatching = (callback) => {
     const [isLoadin, setIsLoading] = useState(false)
     const [error, setError] = useState('')
 
-    const fatching = async (formData) => {
+    const fatching = async (formData =null, pk=null) => {
         try {
             setIsLoading(true)
-            await callback(formData)
+            if (formData && pk) {
+                await callback(formData, pk)
+            }
+            else if (formData) {
+                await callback(formData)
+            }
+            else {
+                await callback()
+            }
         } catch (e) {
             setError(e.message)
         } finally {

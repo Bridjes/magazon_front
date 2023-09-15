@@ -95,7 +95,7 @@ export default class FetchCreateCar {
 
     static async update_car(formData) {
         console.log(formData)
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NTAyOTk4LCJpYXQiOjE2OTQ1MDAyOTgsImp0aSI6ImU4YmFlNDQzY2MwMzQ5MjI4YzIxMjJiYzI2OGFhMzI3IiwidXNlcl9pZCI6Mn0.NEKQTzFAdiNSn5gtaLgfMq6wkJlpJ0rx1PFK4_XLTbo"
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NTA3MzA3LCJpYXQiOjE2OTQ1MDQ2MDcsImp0aSI6IjU4YjJhMjJmZTc1YjRhZWViOGFlOGZmNmQ1OTk4NzUyIiwidXNlcl9pZCI6Mn0.VKTRFAC-n87ytea_P8vrqbTo7gf7VgsdFSn8ruUsX9k"
         const response = await axios.patch("http://127.0.0.1:8000/v1/cars/update/2", formData, {
             headers: {
                 "Authorization": `Bearer ${token}`

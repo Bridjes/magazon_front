@@ -3,11 +3,12 @@ import {Link, useNavigate} from "react-router-dom";
 import classes from './MyNavbar.component.css'
 import {useDispatch, useSelector} from "react-redux";
 import MyButton from "../Button/MyButton";
+import {checkAuth} from "../../../store/curentUserReduser";
 
 const MyNavbar = () => {
-    // const score = useSelector(state => state.score.score)
-    // const dispatch = useDispatch()
-    // const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.user.user)
+    const isAuth = useSelector(state => state.user.isAuth)
 
     return (
         <nav>
@@ -15,18 +16,13 @@ const MyNavbar = () => {
                 <Link className={"logo-link"} to={"/"}>Magazon</Link>
             </div>
             <div className={"nav"}>
-                <MyButton
-                    onClick={async event => {
-                        // dispatch(resetQuestions())
-                        // dispatch(resetScore())
-                        // navigate('/')
-                    }}
-                >
-                    {"Сбросить"}
-                </MyButton>
+
             </div>
             <div className={"auth"}>
-                {/*{score}*/}
+                {isAuth
+                    ? <div>{user.username}</div>
+                    : <div>Неавторизован</div>
+                }
             </div>
         </nav>
     );

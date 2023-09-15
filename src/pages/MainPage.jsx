@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useFatching} from "../hooks/useFatching";
 import {useDispatch} from "react-redux";
 import FetchCreateCar from "../API/car";
@@ -9,15 +9,16 @@ const MainPage = () => {
     const dispatch = useDispatch()
     const [rst, setRst] = useState()
 
-    const [fetching, isLoading, loadingError] = useFatching(async (formData) => {
+    const [fetching, isLoading, loadingError] = useFatching(async (formData, pk) => {
         // получаем JSON с ответом
-        setRst(await FetchCreateCar.update_car(formData))
+        setRst(await FetchCreateCar.update_car(formData, pk))
     })
 
     const handleSubmit = async (event) => {
         // чтобы форма не била ошибки
         event.preventDefault();
-        await fetching(await new FormData(event.target))
+        
+        await fetching(await new FormData(event.target), 2)
     };
 
     return (
