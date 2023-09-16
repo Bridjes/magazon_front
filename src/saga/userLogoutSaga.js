@@ -16,6 +16,7 @@ function* userLogoutSaga(action) {
         yield put(logout(state));
     } catch (error) {
         console.log(error);
+        action.payload.setIsLoading(false)
         const state = {user: {}, isAuth: false}
     }
 }

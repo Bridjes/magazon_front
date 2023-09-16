@@ -6,6 +6,8 @@ import MyLoader from "../components/UI/Loader/MyLoader";
 import MyInput from "../components/UI/Input/MyInput";
 import {useNavigate} from "react-router-dom";
 import MyButton from "../components/UI/Button/MyButton";
+import CategoriesSubcategories from "../components/CategoriesSubcategories";
+import {categories} from "../utils/categories";
 
 const MainPage = () => {
 
@@ -13,7 +15,7 @@ const MainPage = () => {
 
     return (
         <div>
-
+            <CategoriesSubcategories categories={categories}/>
         </div>
     );
 };
