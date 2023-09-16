@@ -7,7 +7,7 @@ nav {
     height: 70px;
     background: #35605A;
     display: grid;
-    grid-template: 70px / 100px 1fr 100px;
+    grid-template: 70px / 100px 1fr 200px;
 }
 nav .logo {
     display: flex;
@@ -43,6 +43,15 @@ nav .auth {
     align-items: center;
     font-family: Arial;
     font-size: 25px;
+    color: #18F2B2;
+    text-shadow: 0 0 10px #18F2B2;
+}
+nav .auth a {
+    color: #F7F0F0;
+    text-decoration: none;
+    text-shadow: none;
+}
+nav .auth a:hover {
     color: #18F2B2;
     text-shadow: 0 0 10px #18F2B2;
 }

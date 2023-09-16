@@ -12,8 +12,6 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false)
     const dispatch = useDispatch()
 
-    console.log(isLoading)
-
     return (
         <div>
             {isLoading
@@ -46,7 +44,8 @@ const Login = () => {
                     <MyButton onClick={() => dispatch(register_fetch({
                         username:username,
                         email:email,
-                        password:password
+                        password:password,
+                        setIsLoading: setIsLoading
                     }))}>
                         Регистрация
                     </MyButton>

@@ -7,11 +7,11 @@ export default class AuthServices {
     }
 
     static async login(username, password) {
-        return await $api.post('v1/user/login/', {username, password})
+        return await $api.post('v1/user/login/', {username, password}, {withCredentials: true})
     }
 
-    static async logout() {
-        return await $api.post('v1/user/logout')
+    static async logout(refresh_token) {
+        return await axios.post(`${API_URL}/v1/user/logout/`, {refresh_token}, {withCredentials: true})
     }
 
     static async verify(token) {
