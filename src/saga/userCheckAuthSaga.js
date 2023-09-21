@@ -8,6 +8,7 @@ function* userCheckAuthSaga(action) {
         const access = localStorage.getItem('access');
         yield call(AuthService.verify, access);
         action.payload.setIsLoading(false)
+
         const state = {user: {username: localStorage.getItem('username')}, isAuth: true}
         yield put(checkAuth(state))
     }
@@ -17,7 +18,6 @@ function* userCheckAuthSaga(action) {
             try {
                 const response = yield call(AuthService.refresh, refresh);
                 action.payload.setIsLoading(false)
-                console.log(response.data.token.refresh)
                 localStorage.setItem('refresh', response.data.refresh);
                 localStorage.setItem('access', response.data.access);
                 const state = {user: {username: localStorage.getItem("username")}, isAuth: true}
@@ -27,11 +27,10 @@ function* userCheckAuthSaga(action) {
                 yield put(checkAuth({user: {}, isAuth: false}))
             }
         } else {
+            action.payload.setIsLoading(false)
             const state = {user: {}, isAuth: false}
             yield put(checkAuth(state))
         }
-        action.payload.setIsLoading(false)
-        yield put(checkAuth({user: {}, isAuth: false}))
     }
 }
 
