@@ -5,14 +5,14 @@ import {login, LOGIN_FETCH} from "../store/curentUserReduser";
 function* userLoginSaga(action) {
     try {
         action.payload.setIsLoading(true)
-        const response = yield call(AuthService.login, action.payload.username, action.payload.password);
+        const response = yield call(AuthService.login, action.payload.email, action.payload.password);
         action.payload.setIsLoading(false)
 
         localStorage.setItem('refresh', response.data.refresh);
         localStorage.setItem('access', response.data.access);
-        localStorage.setItem('user', action.payload.username);
+        localStorage.setItem('username', response.data.username);
 
-        const user = { username: action.payload.username };
+        const user = { username: response.data.username };
         const state = {user: user, isAuth: true}
         yield put(login(state));
     } catch (error) {

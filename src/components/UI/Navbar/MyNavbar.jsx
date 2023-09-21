@@ -11,6 +11,7 @@ const MyNavbar = () => {
     const user = useSelector(state => state.user.user)
     const isAuth = useSelector(state => state.user.isAuth)
     const [isLoading, setIsLoading] = useState(false)
+    const navigate = useNavigate()
 
     return (
         <nav>
@@ -18,26 +19,34 @@ const MyNavbar = () => {
                 <Link className={"logo-link"} to={"/"}>Magazon</Link>
             </div>
             <div className={"nav"}>
-
+                <div>
+                    <button onClick={() => navigate("/submitting_an_ad")}>
+                        Подать объявление
+                    </button>
+                </div>
             </div>
             <div className={"auth"}>
                 {isAuth
                     ?
-                    <div>
+                    <div className={"auth_content"}>
                         {isLoading
                             ?
                             <MyLoader/>
                             :
                             <div>
                                 <div>{user.username}</div>
-                                <MyButton onClick={()=>dispatch(logout_fetch({setIsLoading: setIsLoading}))}>
-                                    Выйти
-                                </MyButton>
+                                <div>
+                                    <button onClick={()=>dispatch(logout_fetch({setIsLoading: setIsLoading}))}>
+                                        Выйти
+                                    </button>
+                                </div>
                             </div>
                         }
                     </div>
                     :
-                    <Link to={"/login"}>Войти</Link>
+                    <MyButton onClick={() => navigate('/login')}>
+                        Войти
+                    </MyButton>
                 }
             </div>
         </nav>

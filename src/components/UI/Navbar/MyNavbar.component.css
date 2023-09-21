@@ -7,7 +7,7 @@ nav {
     height: 70px;
     background: #35605A;
     display: grid;
-    grid-template: 70px / 100px 1fr 200px;
+    grid-template: 70px / 100px 1fr 250px;
 }
 nav .logo {
     display: flex;
@@ -25,14 +25,23 @@ nav .nav {
     justify-content: flex-end;
     align-items: center;
 }
-nav .nav .nav-link {
+nav .nav button {
     margin-right: 20px;
-    color: #F7F0F0;
+    color: #18F2B2;
+    background: #35605A;
+    border: 1px solid #18F2B2;
+    padding: 10px;
+    border-radius: 5px;
     text-decoration: none;
     font-size: 20px;
     font-family: Arial;
 }
-nav .nav .nav-link:hover,
+nav .nav button:hover {
+    box-shadow: 0 0 5px #18F2B2;
+    border: none;
+    background: #18F2B2;
+    color: #F7F0F0;
+}
 nav .logo .logo-link:hover {
     color: #18F2B2;
     text-shadow: 0 0 10px #F7F0F0;
@@ -42,16 +51,23 @@ nav .auth {
     justify-content: center;
     align-items: center;
     font-family: Arial;
-    font-size: 25px;
+}
+nav .auth .auth_content div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
     color: #18F2B2;
     text-shadow: 0 0 10px #18F2B2;
+    margin: 0 5px;
 }
-nav .auth a {
+nav .auth .auth_content button {
+    background: #35605A;
+    border: none;
     color: #F7F0F0;
-    text-decoration: none;
-    text-shadow: none;
+    font-family: Arial;
+    font-size: 20px;
 }
-nav .auth a:hover {
-    color: #18F2B2;
-    text-shadow: 0 0 10px #18F2B2;
+nav .auth .auth_content button:hover {
+    text-shadow: 0 0 10px #F7F0F0;
 }

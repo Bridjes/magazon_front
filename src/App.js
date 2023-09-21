@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import PrivatePage from "./pages/PrivatePage";
 import {check_auth_fetch} from "./store/curentUserReduser";
 import MyLoader from "./components/UI/Loader/MyLoader";
+import SubmittingAnAd from "./pages/SubmittingAnAd";
 
 function App() {
     const dispatcher = useDispatch()
@@ -35,11 +36,15 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MainPage/>}/>
                     <Route path="/login" element={<Login/>}/>
-                    <Route path="*" element={<DefaultRoute/>}/>
                     <Route
                         path="/private"
                         element={<PrivateRoute element={PrivatePage} isAuthenticated={isAuth} />}
                     />
+                    <Route
+                        path="/submitting_an_ad"
+                        element={<PrivateRoute element={SubmittingAnAd} isAuthenticated={isAuth} />}
+                    />
+                    <Route path="*" element={<DefaultRoute/>}/>
                 </Routes>
             }
         </BrowserRouter>

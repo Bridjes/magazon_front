@@ -35,7 +35,7 @@ const Login = () => {
                        name="password"
                        placeholder="Пароль..."/>
                     <MyButton onClick={() => dispatch(login_fetch({
-                        username: username,
+                        email: email,
                         password: password,
                         setIsLoading: setIsLoading
                     }))}>

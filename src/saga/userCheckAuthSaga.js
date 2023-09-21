@@ -1,37 +1,35 @@
 import {put, takeEvery, call} from "redux-saga/effects"
 import AuthService from "../services/AuthServices";
-import {CHECK_AUTH_FETCH, checkAuth, login, LOGIN_FETCH} from "../store/curentUserReduser";
+import {CHECK_AUTH_FETCH, checkAuth} from "../store/curentUserReduser";
 
 function* userCheckAuthSaga(action) {
-    action.payload.setIsLoading(true)
-    const access = localStorage.getItem('access');
     try {
-        const response = yield call(AuthService.verify, access);
-        console.log(response.status)
-        // access невалиден
-        if (response.status === 401) {
-            const refresh = localStorage.getItem('refresh')
-            const response2 = yield call(AuthService.refresh, refresh);
-            action.payload.setIsLoading(false)
-            // на случае, если рефреша вообще нет всписках
-            if (response2.status === 401) {
-                yield put(checkAuth({user: {}, isAuth: false}))
-            // refresh валиден и пришла новая пара
-            } else {
-                localStorage.setItem('refresh', response2.data.token.refresh);
-                localStorage.setItem('access', response2.data.token.access);
-                const state = {user: {username: localStorage.getItem("username")}, isAuth: true}
-                yield put(checkAuth(state))
-            }
-        // access валиден
-        } else {
-            const state = {user: {username: localStorage.getItem('user')}, isAuth: true}
-            action.payload.setIsLoading(false)
-            yield put(checkAuth(state))
-        }
+        action.payload.setIsLoading(true)
+        const access = localStorage.getItem('access');
+        yield call(AuthService.verify, access);
+        action.payload.setIsLoading(false)
+        const state = {user: {username: localStorage.getItem('username')}, isAuth: true}
+        yield put(checkAuth(state))
     }
     catch (e) {
-        console.log(e)
+        if (e.response.status === 401) {
+            const refresh = localStorage.getItem('refresh')
+            try {
+                const response = yield call(AuthService.refresh, refresh);
+                action.payload.setIsLoading(false)
+                console.log(response.data.token.refresh)
+                localStorage.setItem('refresh', response.data.refresh);
+                localStorage.setItem('access', response.data.access);
+                const state = {user: {username: localStorage.getItem("username")}, isAuth: true}
+                yield put(checkAuth(state))
+            } catch {
+                action.payload.setIsLoading(false)
+                yield put(checkAuth({user: {}, isAuth: false}))
+            }
+        } else {
+            const state = {user: {}, isAuth: false}
+            yield put(checkAuth(state))
+        }
         action.payload.setIsLoading(false)
         yield put(checkAuth({user: {}, isAuth: false}))
     }

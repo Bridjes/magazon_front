@@ -6,8 +6,8 @@ export default class AuthServices {
         return await axios.post(`${API_URL}/v1/user/register/`, {username, email, password}, {withCredentials: true})
     }
 
-    static async login(username, password) {
-        return await $api.post('v1/user/login/', {username, password}, {withCredentials: true})
+    static async login(email, password) {
+        return await $api.post('v1/user/login/', {email, password}, {withCredentials: true})
     }
 
     static async logout(refresh_token) {

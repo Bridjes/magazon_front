@@ -1,9 +1,9 @@
 .myButton {
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     background: #35605A;
     color: #F7F0F0;
-    font-size: 25px;
+    font-size: 20px;
     font-family: Arial;
 }
 .myButton:hover {

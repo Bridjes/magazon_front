@@ -20,7 +20,7 @@ export const car_brand_model = {
         "Coupe",
         "E-Tron",
         "E-Tron S",
-        "E-Tron S",
+        "E-Tron S Sportback",
         "E-Tron Sportback",
         "NSU RO 80",
         "Q2",

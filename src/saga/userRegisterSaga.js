@@ -1,6 +1,6 @@
 import {put, takeEvery, call} from "redux-saga/effects"
 import AuthService from "../services/AuthServices";
-import {login, register, REGISTER_FETCH} from "../store/curentUserReduser";
+import {register, REGISTER_FETCH} from "../store/curentUserReduser";
 
 function* userRegisterSaga(action) {
     try {
@@ -15,9 +15,8 @@ function* userRegisterSaga(action) {
         localStorage.setItem('refresh', response.data.token.refresh);
         localStorage.setItem('access', response.data.token.access);
         localStorage.setItem('user', response.data.username);
-        localStorage.setItem('id', response.data.id);
 
-        const user = {username: response.data.username, id: response.data.id}
+        const user = {username: response.data.username}
         const state = {user: user, isAuth: true}
         yield put(register(state));
     } catch (error) {
