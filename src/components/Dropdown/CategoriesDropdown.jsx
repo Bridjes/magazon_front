@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function CategoriesDropdown({ categories, setValue, register, name }) {
+function CategoriesDropdown({ categories, setValue, register, name, className }) {
     const [selectedItem, setSelectedItem] = useState('');
 
     return (
@@ -10,6 +10,7 @@ function CategoriesDropdown({ categories, setValue, register, name }) {
                     setSelectedItem(event.target.value)
                     setValue(name, event.target.value)
                 }}
+                className={className}
         >
             {categories.map((item) => (
                 <option key={item} value={item}>

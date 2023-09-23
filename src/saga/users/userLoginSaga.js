@@ -1,6 +1,6 @@
 import {put, takeEvery, call} from "redux-saga/effects"
-import AuthService from "../services/AuthServices";
-import {login, LOGIN_FETCH} from "../store/curentUserReduser";
+import AuthService from "../../services/AuthServices";
+import {login, LOGIN_FETCH} from "../../store/curentUserReduser";
 
 function* userLoginSaga(action) {
     try {

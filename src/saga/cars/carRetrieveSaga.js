@@ -1,6 +1,6 @@
 import {put, takeEvery, call} from "redux-saga/effects"
-import CarServices from "../services/CarServices";
-import {load_cars, LOAD_CAR_FETCH} from "../store/carReduser";
+import CarServices from "../../services/CarServices";
+import {load_cars, LOAD_CAR_FETCH} from "../../store/carReduser";
 
 function* carRetrieveSaga(action) {
     action.payload.setIsLoading(true)

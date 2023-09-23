@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classes from "./CategoriesSubcategoriesDropdown.component.css"
 
 const CategoriesSubcategoriesDropdowns = ({ ...props }) => {
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -39,8 +40,8 @@ const CategoriesSubcategoriesDropdowns = ({ ...props }) => {
     );
 
     return (
-        <div>
-            <h2>{props.title}</h2>
+        <div className="categories-subcategories">
+            <label htmlFor={props.name} >{props.title}</label>
             <CategoryList categories={props.categories}
                           name={props.name}
                           register={props.register}
@@ -48,8 +49,8 @@ const CategoriesSubcategoriesDropdowns = ({ ...props }) => {
                           dropdown_name={props.dropdown_name}
             />
             {selectedCategory && (
-                <div>
-                    <h3>{props.subtitle}</h3>
+                <div className="subcategories">
+                    <label htmlFor={props.subname}>{props.subtitle}</label>
                     <SubcategoryList subcategories={props.categories[selectedCategory]}
                                      name={props.subname}
                                      register={props.register}

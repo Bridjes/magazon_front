@@ -1,6 +1,6 @@
 import {put, takeEvery, call} from "redux-saga/effects"
-import AuthService from "../services/AuthServices";
-import {CHECK_AUTH_FETCH, checkAuth} from "../store/curentUserReduser";
+import AuthService from "../../services/AuthServices";
+import {CHECK_AUTH_FETCH, checkAuth} from "../../store/curentUserReduser";
 
 function* userCheckAuthSaga(action) {
     try {

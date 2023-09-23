@@ -1,6 +1,6 @@
 import {put, takeEvery, call} from "redux-saga/effects"
-import AuthService from "../services/AuthServices";
-import {register, REGISTER_FETCH} from "../store/curentUserReduser";
+import AuthService from "../../services/AuthServices";
+import {register, REGISTER_FETCH} from "../../store/curentUserReduser";
 
 function* userRegisterSaga(action) {
     try {

@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
-import {useFatching} from "../hooks/useFatching";
 import {useDispatch, useSelector} from "react-redux";
-import FetchCreateCar from "../API/car";
-import MyLoader from "../components/UI/Loader/MyLoader";
-import MyInput from "../components/UI/Input/MyInput";
 import {useNavigate} from "react-router-dom";
 import MyButton from "../components/UI/Button/MyButton";
-import CategoriesSubcategories from "../components/CategoriesSubcategories";
+import CategoriesSubcategories from "../components/UI/Button/CategoriesSubcategories";
 import {categories} from "../utils/categories";
 import {load_car_fetch} from "../store/carReduser";
 

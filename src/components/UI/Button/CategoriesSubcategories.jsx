@@ -36,7 +36,7 @@ const CategoriesSubcategories = ({...props}) => {
     };
 
     return (
-        <div>
+        <div className={props.className}>
             <h2>Категории</h2>
               <CategoryList categories={props.categories} onCategoryClick={handleCategoryClick} />
               {selectedCategory && (

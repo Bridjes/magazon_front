@@ -1,0 +1,20 @@
+.categs-creating {
+    margin: 20px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template: 20px / 200px 1fr;
+}
+.label-creating {
+    text-align: end;
+    overflow-wrap: break-word;
+    font-family: Arial;
+}
+.dropdown-creating {
+    width: 200px;
+}
+.subcateg-creating {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-gap: 10px;
+    grid-template: 20px / 200px 1fr;
+}

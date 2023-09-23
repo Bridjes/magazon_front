@@ -1,0 +1,36 @@
+.loader-box {
+    height: calc(100vh - 70px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form {
+    font-family: Arial;
+    margin: 20px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template: 20px / 200px 1fr;
+}
+.form label {
+    text-align: end;
+    overflow-wrap: break-word;
+}
+.form select {
+    width: 200px;
+}
+.form input {
+    width: 300px;
+}
+.form textarea {
+    width: 300px;
+    height: 200px;
+}
+.categories-sub {
+    grid-column: 1 / span 2;
+}
+.checkbox {
+    display: flex;
+    justify-content: flex-start;
+    width: 5px;
+}
