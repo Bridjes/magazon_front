@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {categories} from "../utils/categories";
 import CarCreate from "../components/Form/CarCreate";
 import classes from "../components/styles/SubmittingAnAd.component.css";
+import TruckCreate from "../components/Form/TruckCreate";
 
 const SubmittingAnAd = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -31,6 +32,8 @@ const SubmittingAnAd = () => {
         switch (selectedSubcategory) {
             case "Легковые авто":
                 return <CarCreate/>
+            case "Грузовики и автобусы":
+                return <TruckCreate/>
             default:
                 return null
         }

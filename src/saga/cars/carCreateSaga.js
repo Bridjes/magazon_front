@@ -10,7 +10,6 @@ function* carCreateSaga(action) {
         yield put(set_status_cars(true))
     } catch (e) {
         action.payload.setIsLoading(false)
-        const state = {cars: []}
         yield put(set_status_cars(false))
     }
 }
