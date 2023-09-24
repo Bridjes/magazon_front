@@ -3,6 +3,7 @@ import {categories} from "../utils/categories";
 import CarCreate from "../components/Form/CarCreate";
 import classes from "../components/styles/SubmittingAnAd.component.css";
 import TruckCreate from "../components/Form/TruckCreate";
+import MotobikeCreate from "../components/Form/MotobikeCreate";
 
 const SubmittingAnAd = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -34,6 +35,8 @@ const SubmittingAnAd = () => {
                 return <CarCreate/>
             case "Грузовики и автобусы":
                 return <TruckCreate/>
+            case "Мотоциклы":
+                return <MotobikeCreate/>
             default:
                 return null
         }
