@@ -10,7 +10,7 @@ import {create_trucks_fetch} from "../../store/truckReduser";
 import {truck_brand, truck_capacity, truck_transmission, truck_type} from "../../utils/trucks";
 import {car_state, car_year} from "../../utils/cars";
 
-const CarCreate = () => {
+const TruckCreate = () => {
     const dispatcher = useDispatch()
     const [isLoading, setIsLoading] = useState(false)
 
@@ -142,4 +142,4 @@ const CarCreate = () => {
     );
 };
 
-export default CarCreate;
+export default TruckCreate;
