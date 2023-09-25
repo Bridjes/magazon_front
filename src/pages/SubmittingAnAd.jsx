@@ -4,6 +4,12 @@ import CarCreate from "../components/Form/CarCreate";
 import classes from "../components/styles/SubmittingAnAd.component.css";
 import TruckCreate from "../components/Form/TruckCreate";
 import MotobikeCreate from "../components/Form/MotobikeCreate";
+import ApartmentCreate from "../components/Form/ApartmentCreate";
+import CottageCreate from "../components/Form/CottageCreate";
+import GarageCreate from "../components/Form/GarageCreate";
+import AudioCreate from "../components/Form/AudioCreate";
+import HeadphonesCreate from "../components/Form/HeadphonesCreate";
+import VideoEquipmentCreate from "../components/Form/VideoEquipmentCreate";
 
 const SubmittingAnAd = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -37,6 +43,18 @@ const SubmittingAnAd = () => {
                 return <TruckCreate/>
             case "Мотоциклы":
                 return <MotobikeCreate/>
+            case "Квартиры":
+                return <ApartmentCreate/>
+            case "Дома, дачи, коттеджи":
+                return <CottageCreate/>
+            case "Гаражи и стоянки":
+                return <GarageCreate/>
+            case "Аудиотехника":
+                return <AudioCreate/>
+            case "Наушники":
+                return <HeadphonesCreate/>
+            case "ТВ и видеотехника":
+                return <VideoEquipmentCreate/>
             default:
                 return null
         }

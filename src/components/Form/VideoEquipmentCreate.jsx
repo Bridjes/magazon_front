@@ -6,29 +6,22 @@ import { useForm } from "react-hook-form";
 import CategoriesDropdown from "../Dropdown/CategoriesDropdown";
 import {locations} from "../../utils/locations";
 import classes from "./CarCreate.component.css"
-import {create_motobike_fetch} from "../../store/motobikeReduser";
-import {
-    motobike_brand,
-    motobike_drive_unit,
-    motobike_nuber_cycles,
-    motobike_nuber_cylinders,
-    motobike_type, motobike_volume
-} from "../../utils/motobikes";
-import {car_state, car_year} from "../../utils/cars";
+import {create_vido_equipments_fetch} from "../../store/videoEquipmentReduser";
+import {audio_state} from "../../utils/audio";
+import {video_equipment_type_brand} from "../../utils/video_equipment";
 
-const MotobikeCreate = () => {
+const VideoEquipmentCreate = () => {
     const dispatcher = useDispatch()
     const [isLoading, setIsLoading] = useState(false)
 
     const { register, setValue, handleSubmit } = useForm()
 
     const [exchange, set_exchange] = useState(false)
-    const [leasing, set_leasing] = useState(false)
     const [installment_plan, set_installment_plan] = useState(false)
 
     const onSubmit = (data) => {
         data.photo = data.photo[0]
-        dispatcher(create_motobike_fetch({data:data, setIsLoading:setIsLoading}))
+        dispatcher(create_vido_equipments_fetch({data:data, setIsLoading:setIsLoading}))
     };
 
     return (
@@ -46,60 +39,19 @@ const MotobikeCreate = () => {
                     <label htmlFor="photo">Фото</label>
                     <input {...register("photo")} id="photo" type="file" />
 
-                    <label htmlFor="brand">Марка</label>
-                    <CategoriesDropdown categories={motobike_brand}
-                                        setValue={setValue}
-                                        register={register}
-                                        name="brand"
-                    />
+                    <div className="categories-sub">
+                        <CategoriesSubcategoriesDropdowns categories={video_equipment_type_brand}
+                                                          register={register}
+                                                          setValue={setValue}
+                                                          name="type"
+                                                          subname="manufacturer"
+                                                          title="Тип"
+                                                          subtitle="Производитель"
+                        />
+                    </div>
 
-                    <label htmlFor="type">Тип</label>
-                    <CategoriesDropdown categories={motobike_type}
-                                        setValue={setValue}
-                                        register={register}
-                                        name="type"
-                    />
-
-                    <label htmlFor="dive_unit">Привод</label>
-                    <CategoriesDropdown categories={motobike_drive_unit}
-                                        setValue={setValue}
-                                        register={register}
-                                        name="dive_unit"
-                    />
-
-                    <label htmlFor="number_cycles">Количество тактов</label>
-                    <CategoriesDropdown categories={motobike_nuber_cycles}
-                                        setValue={setValue}
-                                        register={register}
-                                        name="number_cycles"
-                    />
-
-                    <label htmlFor="number_cylinders">Количество цилиндров</label>
-                    <CategoriesDropdown categories={motobike_nuber_cylinders}
-                                        setValue={setValue}
-                                        register={register}
-                                        name="number_cylinders"
-                    />
-
-                    <label htmlFor="number_volume">Объём, см³</label>
-                    <CategoriesDropdown categories={motobike_volume}
-                                        setValue={setValue}
-                                        register={register}
-                                        name="number_volume"
-                    />
-
-                    <label htmlFor="year">Год</label>
-                    <CategoriesDropdown categories={car_year}
-                                        setValue={setValue}
-                                        register={register}
-                                        name="year"
-                    />
-
-                    <label htmlFor="mileage">Пробег*</label>
-                    <input {...register("mileage")} id="mileage" type="number" />
-
-                    <label htmlFor="state">Состояние*</label>
-                    <CategoriesDropdown categories={car_state}
+                    <label htmlFor="state">Состояние</label>
+                    <CategoriesDropdown categories={audio_state}
                                         setValue={setValue}
                                         register={register}
                                         name="state"
@@ -119,17 +71,6 @@ const MotobikeCreate = () => {
                                checked={exchange}
                                onChange={(event) =>
                                    set_exchange(event.target.checked)}
-                        />
-                    </div>
-
-                    <label htmlFor="leasing">Лизинг от продавца</label>
-                    <div className="checkbox">
-                        <input {...register("leasing")}
-                               id="leasing"
-                               type="checkbox"
-                               checked={leasing}
-                               onChange={(event) =>
-                                   set_leasing(event.target.checked)}
                         />
                     </div>
 
@@ -162,4 +103,4 @@ const MotobikeCreate = () => {
     );
 };
 
-export default MotobikeCreate;
+export default VideoEquipmentCreate;

@@ -153,7 +153,7 @@ const CarCreate = () => {
                         />
                     </div>
 
-                    <label htmlFor="regular_navigation">Regular Navigation</label>
+                    <label htmlFor="regular_navigation">Штатная навигация</label>
                     <div className="checkbox">
                         <input {...register("regular_navigation")}
                                id="regular_navigation"

@@ -20,6 +20,7 @@ import {headphonesRetrieveWatch} from "./headphones/headphonesRetrieveSaga";
 import {headphonesCreateWatch} from "./headphones/headphonesCreateSaga";
 import {videoeEuipmentRetrieveWatch} from "./video_equipments/videoEquipmentRetrieveSaga";
 import {videoeEuipmentCreateWatch} from "./video_equipments/videoEquipmentCreateSaga";
+import {audioCreateWatch} from "./audio/auidoCreateSaga";
 
 export function* rootWatcher() {
     yield all([
@@ -47,7 +48,7 @@ export function* rootWatcher() {
         garageCreateWatch(),
 
         audioRetrieveWatch(),
-        apartmentCreateWatch(),
+        audioCreateWatch(),
 
         headphonesRetrieveWatch(),
         headphonesCreateWatch(),
